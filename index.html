@@ -111,9 +111,26 @@ book.addEventListener("touchend",e=>{const dx=e.changedTouches[0].screenX-startX
 book.addEventListener("click",e=>{if(e.target.closest("button"))return;const rect=book.getBoundingClientRect();if(e.clientX-rect.left>rect.width*.83)show(current+1);else if(e.clientX-rect.left<rect.width*.17)show(current-1)});
 
 const soundtrack=document.querySelector("#soundtrack"),musicToggle=document.querySelector("#musicToggle");
+let musicStarted=false;
+async function startMusicOnce(){
+ if(musicStarted)return;
+ musicStarted=true;
+ try{
+   await soundtrack.play();
+   musicToggle.textContent="Ⅱ Pause music";
+   musicToggle.setAttribute("aria-pressed","true");
+ }catch(e){
+   musicStarted=false;
+   musicToggle.textContent="♫ Play music";
+ }
+}
+document.querySelector("#book").addEventListener("pointerdown",startMusicOnce,{passive:true});
+document.querySelector("#next").addEventListener("click",startMusicOnce);
+document.querySelector("#prev").addEventListener("click",startMusicOnce);
+
 musicToggle.addEventListener("click",async()=>{
  if(!soundtrack.paused){soundtrack.pause();musicToggle.textContent="♫ Play music";musicToggle.setAttribute("aria-pressed","false");return}
- try{await soundtrack.play();musicToggle.textContent="Ⅱ Pause music";musicToggle.setAttribute("aria-pressed","true")}
+ try{await soundtrack.play();musicStarted=true;musicToggle.textContent="Ⅱ Pause music";musicToggle.setAttribute("aria-pressed","true")}
  catch(e){musicToggle.textContent="♫ Add music.mp3 first"}
 });
 soundtrack.addEventListener("error",()=>{musicToggle.textContent="♫ Add music.mp3 first"});
