@@ -114,8 +114,6 @@ function startMusic(){
  const attempt=soundtrack.play();
  if(attempt&&typeof attempt.catch==="function")attempt.catch(()=>{});
 }
-let startX=0,startY=0,swiped=false;
-const book=document.querySelector("#book");
 book.addEventListener("touchstart",e=>{
  startX=e.changedTouches[0].screenX;
  startY=e.changedTouches[0].screenY;
