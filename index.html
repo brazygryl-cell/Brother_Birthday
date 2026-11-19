@@ -40,52 +40,55 @@ h1,h2{color:#f1f2f5;text-shadow:3px 3px 0 #9d1e2e}
 .controls button:active,#celebrate:active{transform:scale(.96)}
 .dot{background:#6e7b8e}.dot.on{background:#d62d43}
 .page{touch-action:pan-y;user-select:none}
-.page:after{content:"BKLYN • NYC / MEMORY ARCHIVE";position:absolute;bottom:14px;right:18px;color:#9da5b4;font-size:10px;letter-spacing:.18em;font-weight:800}
+.page:after{content:"BROOKLYN / FAMILY PHOTOS";position:absolute;bottom:14px;right:18px;color:#9da5b4;font-size:10px;letter-spacing:.18em;font-weight:800}
 @media(max-width:600px){.book{border-left-width:10px}.page{padding-bottom:55px}.controls{gap:6px}.controls button{font-size:13px;padding:11px 13px}.polaroid img{height:150px}}
+
+.music-control{position:fixed;right:14px;top:14px;z-index:20;border:1px solid #9b9fa8;border-radius:30px;background:#171a21;color:#f3f3f5;font-weight:800;padding:12px 15px;min-height:46px;cursor:pointer;box-shadow:0 4px 12px #0008}
+.music-control:focus-visible{outline:3px solid #d34355}
 </style>
 </head>
 <body>
-<main>
-<p class="eyebrow">BROOKLYN • FAMILY ARCHIVES • EST. FOREVER</p>
+<audio id="soundtrack" src="assets/music.mp3" preload="none" loop></audio><button class="music-control" id="musicToggle" aria-pressed="false">♫ Play music</button><main>
+<p class="eyebrow">BROOKLYN / PHOTO ALBUM</p>
 <div class="book" id="book">
 <section class="page active">
 <span class="star s1">✦</span><span class="star s2">💙</span>
-<div class="sticker">STRAIGHT FROM THE HEART</div>
+<div class="sticker">FOR YOU, BRO</div>
 <h1>Happy Birthday,<br>Bro!</h1>
-<p class="hand">From the block to all the memories we've made.</p>
+<p class="hand">A few old pictures. A lot of memories.</p>
 <div class="photos"><figure class="polaroid"><span class="tape"></span><img src="assets/IMG_1532.JPG" alt="Family memory"><figcaption>our story ♡</figcaption></figure></div>
-<p>Tap NEXT or swipe left to flip →</p>
+<p>Swipe to flip through.</p>
 </section>
 <section class="page">
-<span class="sticker">OLD SCHOOL / NEW YORK</span><h2>Where it all began</h2>
+<span class="sticker">THROWBACKS</span><h2>Way back when</h2>
 <div class="photos">
-<figure class="polaroid"><img src="assets/IMG_0908.JPG" alt="Older family photo"><figcaption>back in the day</figcaption></figure>
-<figure class="polaroid"><img src="assets/IMG_0945.JPG" alt="Throwback portrait"><figcaption>the memories!</figcaption></figure>
-</div><p class="hand">Some pictures never get old.</p>
+<figure class="polaroid"><img src="assets/IMG_0908.JPG" alt="Older family photo"><figcaption>throwback</figcaption></figure>
+<figure class="polaroid"><img src="assets/IMG_0945.JPG" alt="Throwback portrait"><figcaption>classic</figcaption></figure>
+</div><p class="hand">We really have pictures of everything. 😂</p>
 </section>
 <section class="page">
-<span class="star s1">⭐</span><h2>Remember when…?</h2>
+<span class="star s1">⭐</span><h2>Look at us 😂</h2>
 <div class="photos">
-<figure class="polaroid"><img src="assets/IMG_5108.JPG" alt="Throwback photo"><figcaption>little moments</figcaption></figure>
-<figure class="polaroid"><img src="assets/IMG_0961.JPG" alt="Family portrait"><figcaption>big memories</figcaption></figure>
-</div><p class="hand">All these chapters made us who we are.</p>
+<figure class="polaroid"><img src="assets/IMG_5108.JPG" alt="Throwback photo"><figcaption>this one</figcaption></figure>
+<figure class="polaroid"><img src="assets/IMG_0961.JPG" alt="Family portrait"><figcaption>and this one</figcaption></figure>
+</div><p class="hand">I had to include these.</p>
 </section>
 <section class="page">
-<div class="sticker">THE GOOD OLD DAYS</div><h2>Life looks better together</h2>
-<div class="photos"><figure class="polaroid"><img src="assets/IMG_3912.JPG" alt="Family outdoors"><figcaption>always family</figcaption></figure></div>
-<div class="note hand">Through every adventure and every ordinary day, these are the moments that matter.</div>
+<div class="sticker">FAMILY</div><h2>Good times</h2>
+<div class="photos"><figure class="polaroid"><img src="assets/IMG_3912.JPG" alt="Family outdoors"><figcaption>good day</figcaption></figure></div>
+<div class="note hand">A lot of good memories in one camera roll.</div>
 </section>
 <section class="page">
-<span class="star s2">✨</span><h2>More memories, please!</h2>
+<span class="star s2">✨</span><h2>More from the camera roll</h2>
 <div class="photos">
-<figure class="polaroid"><img src="assets/A9A080B5-D91D-446D-A6E6-D9C7EEF7ACC8.jpeg" alt="Looking through a photo album"><figcaption>remember this?</figcaption></figure>
-<figure class="polaroid"><img src="assets/09D9FBAC-FC71-492B-91D8-ABEE0F5E2010.jpeg" alt="Family theme park adventure"><figcaption>another favorite</figcaption></figure>
-</div><p class="hand">Here's to the memories we've made and all the ones still to come.</p>
+<figure class="polaroid"><img src="assets/A9A080B5-D91D-446D-A6E6-D9C7EEF7ACC8.jpeg" alt="Looking through a photo album"><figcaption>had to add this</figcaption></figure>
+<figure class="polaroid"><img src="assets/09D9FBAC-FC71-492B-91D8-ABEE0F5E2010.jpeg" alt="Family theme park adventure"><figcaption>one more</figcaption></figure>
+</div><p class="hand">There were too many pictures to choose from.</p>
 </section>
 <section class="page">
-<span class="sticker">BIG BRO ENERGY</span><h1>Happy Birthday! 🎂</h1>
-<div class="note"><p class="hand">Wishing you another year of laughter, adventures, happiness, and everything good. So glad we have all these memories together. Love you, bro! 💙</p></div>
-<p class="hand">The best chapters are still ahead.</p>
+<span class="sticker">LAST PAGE</span><h1>Happy Birthday! 🎂</h1>
+<div class="note"><p class="hand">Happy birthday! Hope you have a great year and get everything you're working toward. Love you, bro. ❤️</p></div>
+<p class="hand">Enjoy your day!</p>
 <button id="celebrate" style="border:0;border-radius:30px;background:#304b67;color:white;padding:15px 24px;font-weight:800;cursor:pointer">🎉 Celebrate!</button>
 </section>
 </div>
@@ -98,7 +101,7 @@ pages.forEach((_,i)=>{const dot=document.createElement("span");dot.className="do
 function show(n){current=Math.max(0,Math.min(pages.length-1,n));pages.forEach((p,i)=>p.classList.toggle("active",i===current));prev.disabled=current===0;next.textContent=current===pages.length-1?"Start over ↻":"Next page →";count.textContent=(current+1)+" / "+pages.length;[...dots.children].forEach((d,i)=>d.classList.toggle("on",i===current));if(current===pages.length-1)confetti(65)}
 prev.onclick=()=>show(current-1);next.onclick=()=>show(current===pages.length-1?0:current+1);
 document.querySelector("#celebrate").onclick=()=>confetti(130);
-function confetti(n){const colors=["#f4b9bb","#bad9ed","#f7dc8b","#a8d6b3","#c5b1e4"];for(let i=0;i<n;i++){const e=document.createElement("i");e.className="confetti";e.style.left=Math.random()*100+"vw";e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.animationDelay=Math.random()*1.1+"s";e.style.animationDuration=2+Math.random()*2+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),5200)}}
+function confetti(n){const colors=["#4a0f1b","#831b2d","#171a20","#243b59","#4b5361","#a32a39"];for(let i=0;i<n;i++){const e=document.createElement("i");e.className="confetti";e.style.left=Math.random()*100+"vw";e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.animationDelay=Math.random()*1.1+"s";e.style.animationDuration=2+Math.random()*2+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),5200)}}
 document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")show(current+1);if(e.key==="ArrowLeft")show(current-1)});
 
 let startX=0,startY=0;
@@ -106,5 +109,19 @@ const book=document.querySelector("#book");
 book.addEventListener("touchstart",e=>{startX=e.changedTouches[0].screenX;startY=e.changedTouches[0].screenY},{passive:true});
 book.addEventListener("touchend",e=>{const dx=e.changedTouches[0].screenX-startX,dy=e.changedTouches[0].screenY-startY;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.2){show(current+(dx<0?1:-1))}},{passive:true});
 book.addEventListener("click",e=>{if(e.target.closest("button"))return;const rect=book.getBoundingClientRect();if(e.clientX-rect.left>rect.width*.83)show(current+1);else if(e.clientX-rect.left<rect.width*.17)show(current-1)});
+
+const soundtrack=document.querySelector("#soundtrack"),musicToggle=document.querySelector("#musicToggle");
+musicToggle.addEventListener("click",async()=>{
+ if(!soundtrack.paused){soundtrack.pause();musicToggle.textContent="♫ Play music";musicToggle.setAttribute("aria-pressed","false");return}
+ try{await soundtrack.play();musicToggle.textContent="Ⅱ Pause music";musicToggle.setAttribute("aria-pressed","true")}
+ catch(e){musicToggle.textContent="♫ Add music.mp3 first"}
+});
+soundtrack.addEventListener("error",()=>{musicToggle.textContent="♫ Add music.mp3 first"});
+const extensions=[".JPG",".jpg",".JPEG",".jpeg",".PNG",".png",".webp"];
+document.querySelectorAll(".polaroid img").forEach(img=>{
+ const original=img.getAttribute("src"),stem=original.replace(/^assets\//,"").replace(/\.[^.]+$/,"");
+ const candidates=[original,...extensions.map(ext=>"assets/"+stem+ext),...extensions.map(ext=>stem+ext)];
+ let idx=0;img.addEventListener("error",()=>{idx++;if(idx<candidates.length){img.src=candidates[idx]}else{img.alt="Photo not found: "+stem;img.style.minHeight="130px";img.style.objectFit="contain";img.style.background="#30343d"}});
+});
 </script>
 </body></html>
