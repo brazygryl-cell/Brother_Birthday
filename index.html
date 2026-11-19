@@ -50,7 +50,7 @@ h1,h2{color:#f1f2f5;text-shadow:3px 3px 0 #9d1e2e}
 </style>
 </head>
 <body>
-<audio id="soundtrack" src="assets/music.mp3" preload="none" loop></audio><button class="music-control" id="musicToggle" aria-pressed="false"> Play music</button><main>
+<audio id="soundtrack" src="assets/music.mp3" preload="none" loop></audio><main>
 
 <div class="book" id="book">
 <section class="page active">
@@ -108,26 +108,14 @@ document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")show(current+1);
 
 let startX=0,startY=0,swiped=false;
 const book=document.querySelector("#book");
-const soundtrack=document.querySelector("#soundtrack"),musicToggle=document.querySelector("#musicToggle");
-let manuallyPaused=false;
-function syncMusicButton(){
- const playing=!soundtrack.paused;
- musicToggle.textContent=playing?"Ⅱ Pause music":" Play music";
- musicToggle.setAttribute("aria-pressed",String(playing));
-}
+const soundtrack=document.querySelector("#soundtrack");
 function startMusic(){
- if(manuallyPaused||!soundtrack.paused)return;
+ if(!soundtrack.paused)return;
  const attempt=soundtrack.play();
- if(attempt&&typeof attempt.then==="function"){
-   attempt.then(syncMusicButton).catch(()=>{syncMusicButton();});
- }
+ if(attempt&&typeof attempt.catch==="function")attempt.catch(()=>{});
 }
-soundtrack.addEventListener("play",syncMusicButton);
-soundtrack.addEventListener("pause",syncMusicButton);
-soundtrack.addEventListener("error",()=>{musicToggle.textContent=" Check music file";});
-function turnPage(direction){
- show(direction>0?(current===pages.length-1?0:current+1):Math.max(0,current-1));
-}
+let startX=0,startY=0,swiped=false;
+const book=document.querySelector("#book");
 book.addEventListener("touchstart",e=>{
  startX=e.changedTouches[0].screenX;
  startY=e.changedTouches[0].screenY;
@@ -136,26 +124,18 @@ book.addEventListener("touchstart",e=>{
 book.addEventListener("touchend",e=>{
  const dx=e.changedTouches[0].screenX-startX,dy=e.changedTouches[0].screenY-startY;
  if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.2){
-   swiped=true;turnPage(dx<0?1:-1);
+  swiped=true;
+  show(dx<0?(current===pages.length-1?0:current+1):Math.max(0,current-1));
  }
 },{passive:true});
-book.addEventListener("pointerdown",()=>{startMusic()},{passive:true});
 book.addEventListener("click",e=>{
- if(e.target.closest("button"))return;
- startMusic();
  if(swiped){swiped=false;return}
  const rect=book.getBoundingClientRect();
- turnPage(e.clientX-rect.left<rect.width*.22?-1:1);
+ show(e.clientX-rect.left<rect.width*.22?Math.max(0,current-1):(current===pages.length-1?0:current+1));
 });
-document.addEventListener("pointerdown",e=>{if(e.target.closest("#musicToggle"))return;startMusic()},{capture:true,passive:true});
-next.addEventListener("pointerdown",startMusic);
-prev.addEventListener("pointerdown",startMusic);
-next.addEventListener("click",startMusic);
-prev.addEventListener("click",startMusic);
-musicToggle.addEventListener("click",()=>{
- if(!soundtrack.paused){manuallyPaused=true;soundtrack.pause();syncMusicButton();return}
- manuallyPaused=false;startMusic();
-});
+document.addEventListener("pointerdown",startMusic,{capture:true,passive:true});
+document.addEventListener("keydown",startMusic);
+soundtrack.addEventListener("pause",()=>{if(!document.hidden)startMusic()});
 const extensions=[".JPG",".jpg",".JPEG",".jpeg",".PNG",".png",".webp"];
 document.querySelectorAll(".polaroid img").forEach(img=>{
  const original=img.getAttribute("src"),stem=original.replace(/^assets\//,"").replace(/\.[^.]+$/,"");
