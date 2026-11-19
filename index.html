@@ -102,7 +102,7 @@ const pages=[...document.querySelectorAll(".page")],prev=document.querySelector(
 pages.forEach((_,i)=>{const dot=document.createElement("span");dot.className="dot"+(i===0?" on":"");dots.appendChild(dot)});
 function show(n){current=Math.max(0,Math.min(pages.length-1,n));pages.forEach((p,i)=>p.classList.toggle("active",i===current));prev.disabled=current===0;next.textContent=current===pages.length-1?"Start over ↻":"Next page →";count.textContent=(current+1)+" / "+pages.length;[...dots.children].forEach((d,i)=>d.classList.toggle("on",i===current));if(current===pages.length-1)confetti(65)}
 prev.onclick=()=>show(current-1);next.onclick=()=>show(current===pages.length-1?0:current+1);
-document.querySelector("#celebrate").onclick=()=>confetti(130);
+document.querySelector("#celebrate").addEventListener("click",e=>{e.stopPropagation();confetti(130);});
 function confetti(n){const colors=["#4a0f1b","#831b2d","#171a20","#243b59","#4b5361","#a32a39"];for(let i=0;i<n;i++){const e=document.createElement("i");e.className="confetti";e.style.left=Math.random()*100+"vw";e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.animationDelay=Math.random()*1.1+"s";e.style.animationDuration=2+Math.random()*2+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),5200)}}
 document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")show(current+1);if(e.key==="ArrowLeft")show(current-1)});
 
@@ -127,6 +127,7 @@ book.addEventListener("touchend",e=>{
  }
 },{passive:true});
 book.addEventListener("click",e=>{
+ if(e.target.closest("button, a, input, audio"))return;
  if(swiped){swiped=false;return}
  const rect=book.getBoundingClientRect();
  show(e.clientX-rect.left<rect.width*.22?Math.max(0,current-1):(current===pages.length-1?0:current+1));
