@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday, Bro! | Our Scrapbook</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Permanent+Marker&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#29354b;--paper:#fff9eb;--blue:#bad9ed;--pink:#f4b9bb;--gold:#f7dc8b}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 10%,#e8d8e9,transparent 40%),radial-gradient(circle at 85% 85%,#b8d7df,transparent 45%),#eae5db;color:var(--ink);font-family:"DM Sans",sans-serif}
+main{width:min(100%,850px)}.eyebrow{text-align:center;font-weight:800;font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 15px}
+.book{position:relative;min-height:640px;background:var(--paper);border-left:17px solid #9bb4c8;border-radius:7px 23px 23px 7px;box-shadow:8px 12px 0 #c9bba8,12px 23px 38px #28344945;overflow:hidden}
+.book:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#a99b7a35 .7px,transparent .7px);background-size:9px 9px}
+.page{display:none;position:relative;min-height:640px;padding:35px 40px 58px;align-items:center;justify-content:center;flex-direction:column;text-align:center;animation:enter .45s ease}
+.page.active{display:flex}@keyframes enter{from{opacity:0;transform:translateX(20px) rotate(.6deg)}to{opacity:1;transform:none}}
+h1,h2{font-family:"Permanent Marker",cursive;line-height:1.15;margin:10px 0 18px}h1{font-size:clamp(42px,8vw,76px)}h2{font-size:clamp(30px,5vw,47px)}p{line-height:1.6}.hand{font-family:"Caveat",cursive;font-size:clamp(25px,4vw,35px);line-height:1.2}
+.sticker{display:inline-block;background:var(--gold);padding:8px 16px;transform:rotate(-6deg);font-family:"Permanent Marker",cursive;box-shadow:3px 4px 0 #0002}
+.star{position:absolute;font-size:35px}.s1{top:12%;left:9%}.s2{right:10%;bottom:15%}.tape{position:absolute;top:-13px;left:40%;height:30px;width:72px;background:#f3d68e99;transform:rotate(-8deg);z-index:2}
+.photos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px;max-width:730px;margin:18px auto}.polaroid{position:relative;background:white;padding:10px 10px 27px;box-shadow:4px 8px 14px #1e27353b;width:min(38vw,220px);transform:rotate(var(--tilt,0deg));transition:transform .25s}.polaroid:hover{transform:rotate(0deg) scale(1.05);z-index:3}.polaroid img{width:100%;height:190px;object-fit:cover;display:block}.polaroid figcaption{font-family:"Caveat",cursive;font-size:22px;margin-top:6px}.polaroid:nth-child(2){--tilt:5deg}.polaroid:nth-child(1){--tilt:-5deg}.polaroid:nth-child(3){--tilt:-2deg}
+.note{max-width:600px;background:#fff0c8;padding:18px 24px;transform:rotate(-1deg);box-shadow:4px 5px 0 #0001}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px}.controls button{border:0;border-radius:30px;padding:12px 20px;background:#304b67;color:white;font-weight:800;cursor:pointer;font-size:14px}.controls button:disabled{opacity:.35;cursor:default}.counter{font-size:13px;font-weight:800;letter-spacing:.1em}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:15px}.dot{width:9px;height:9px;border-radius:50%;background:#a9aeb1}.dot.on{background:#304b67}
+.confetti{position:fixed;top:-20px;width:9px;height:15px;pointer-events:none;animation:fall 3s linear forwards;z-index:10}@keyframes fall{to{transform:translateY(110vh) rotate(760deg);opacity:0}}
+@media(max-width:600px){body{padding:12px}.book{min-height:580px;border-left-width:10px}.page{min-height:580px;padding:35px 13px 48px}.photos{gap:11px}.polaroid{width:43%;padding:6px 6px 20px}.polaroid img{height:145px}.polaroid figcaption{font-size:17px}.star{font-size:24px}.note{padding:12px}.controls button{padding:11px 13px}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">A little book of big memories</p>
+<div class="book" id="book">
+<section class="page active">
+<span class="star s1">✦</span><span class="star s2">💙</span>
+<div class="sticker">MADE WITH LOVE</div>
+<h1>Happy Birthday,<br>Bro!</h1>
+<p class="hand">A scrapbook of moments worth keeping forever.</p>
+<div class="photos"><figure class="polaroid"><span class="tape"></span><img src="assets/IMG_1532.JPG" alt="Family memory"><figcaption>our story ♡</figcaption></figure></div>
+<p>Flip through the pages →</p>
+</section>
+<section class="page">
+<span class="sticker">THE THROWBACKS</span><h2>Where it all began</h2>
+<div class="photos">
+<figure class="polaroid"><img src="assets/IMG_0908.JPG" alt="Older family photo"><figcaption>back in the day</figcaption></figure>
+<figure class="polaroid"><img src="assets/IMG_0945.JPG" alt="Throwback portrait"><figcaption>the memories!</figcaption></figure>
+</div><p class="hand">Some pictures never get old.</p>
+</section>
+<section class="page">
+<span class="star s1">⭐</span><h2>Remember when…?</h2>
+<div class="photos">
+<figure class="polaroid"><img src="assets/IMG_5108.JPG" alt="Throwback photo"><figcaption>little moments</figcaption></figure>
+<figure class="polaroid"><img src="assets/IMG_0961.JPG" alt="Family portrait"><figcaption>big memories</figcaption></figure>
+</div><p class="hand">All these chapters made us who we are.</p>
+</section>
+<section class="page">
+<div class="sticker">GOOD TIMES</div><h2>Life looks better together</h2>
+<div class="photos"><figure class="polaroid"><img src="assets/IMG_3912.JPG" alt="Family outdoors"><figcaption>always family</figcaption></figure></div>
+<div class="note hand">Through every adventure and every ordinary day, these are the moments that matter.</div>
+</section>
+<section class="page">
+<span class="star s2">✨</span><h2>More memories, please!</h2>
+<div class="photos">
+<figure class="polaroid"><img src="assets/A9A080B5-D91D-446D-A6E6-D9C7EEF7ACC8.jpeg" alt="Looking through a photo album"><figcaption>remember this?</figcaption></figure>
+<figure class="polaroid"><img src="assets/09D9FBAC-FC71-492B-91D8-ABEE0F5E2010.jpeg" alt="Family theme park adventure"><figcaption>another favorite</figcaption></figure>
+</div><p class="hand">Here's to the memories we've made and all the ones still to come.</p>
+</section>
+<section class="page">
+<span class="sticker">ONE MORE THING…</span><h1>Happy Birthday! 🎂</h1>
+<div class="note"><p class="hand">Wishing you another year of laughter, adventures, happiness, and everything good. So glad we have all these memories together. Love you, bro! 💙</p></div>
+<p class="hand">The best chapters are still ahead.</p>
+<button id="celebrate" style="border:0;border-radius:30px;background:#304b67;color:white;padding:15px 24px;font-weight:800;cursor:pointer">🎉 Celebrate!</button>
+</section>
+</div>
+<nav class="controls"><button id="prev" disabled>← Previous</button><span class="counter" id="count">1 / 6</span><button id="next">Next page →</button></nav>
+<div class="dots" id="dots" aria-label="Page indicators"></div>
+</main>
+<script>
+const pages=[...document.querySelectorAll(".page")],prev=document.querySelector("#prev"),next=document.querySelector("#next"),count=document.querySelector("#count"),dots=document.querySelector("#dots");let current=0;
+pages.forEach((_,i)=>{const dot=document.createElement("span");dot.className="dot"+(i===0?" on":"");dots.appendChild(dot)});
+function show(n){current=Math.max(0,Math.min(pages.length-1,n));pages.forEach((p,i)=>p.classList.toggle("active",i===current));prev.disabled=current===0;next.textContent=current===pages.length-1?"Start over ↻":"Next page →";count.textContent=(current+1)+" / "+pages.length;[...dots.children].forEach((d,i)=>d.classList.toggle("on",i===current));if(current===pages.length-1)confetti(65)}
+prev.onclick=()=>show(current-1);next.onclick=()=>show(current===pages.length-1?0:current+1);
+document.querySelector("#celebrate").onclick=()=>confetti(130);
+function confetti(n){const colors=["#f4b9bb","#bad9ed","#f7dc8b","#a8d6b3","#c5b1e4"];for(let i=0;i<n;i++){const e=document.createElement("i");e.className="confetti";e.style.left=Math.random()*100+"vw";e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.animationDelay=Math.random()*1.1+"s";e.style.animationDuration=2+Math.random()*2+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),5200)}}
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")show(current+1);if(e.key==="ArrowLeft")show(current-1)});
+</script>
+</body></html>
