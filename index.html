@@ -45,6 +45,8 @@ h1,h2{color:#f1f2f5;text-shadow:3px 3px 0 #9d1e2e}
 
 .music-control{position:fixed;right:14px;top:14px;z-index:20;border:1px solid #9b9fa8;border-radius:30px;background:#171a21;color:#f3f3f5;font-weight:800;padding:12px 15px;min-height:46px;cursor:pointer;box-shadow:0 4px 12px #0008}
 .music-control:focus-visible{outline:3px solid #d34355}
+.music-control{top:auto!important;bottom:88px!important;right:16px!important;font-size:12px!important;padding:9px 12px!important;min-height:40px!important;opacity:.92}
+@media(max-width:600px){.music-control{bottom:76px!important;right:12px!important}}
 </style>
 </head>
 <body>
@@ -130,7 +132,6 @@ book.addEventListener("touchstart",e=>{
  startX=e.changedTouches[0].screenX;
  startY=e.changedTouches[0].screenY;
  swiped=false;
- startMusic();
 },{passive:true});
 book.addEventListener("touchend",e=>{
  const dx=e.changedTouches[0].screenX-startX,dy=e.changedTouches[0].screenY-startY;
@@ -138,6 +139,7 @@ book.addEventListener("touchend",e=>{
    swiped=true;turnPage(dx<0?1:-1);
  }
 },{passive:true});
+book.addEventListener("pointerdown",()=>{startMusic()},{passive:true});
 book.addEventListener("click",e=>{
  if(e.target.closest("button"))return;
  startMusic();
@@ -145,6 +147,7 @@ book.addEventListener("click",e=>{
  const rect=book.getBoundingClientRect();
  turnPage(e.clientX-rect.left<rect.width*.22?-1:1);
 });
+document.addEventListener("pointerdown",e=>{if(e.target.closest("#musicToggle"))return;startMusic()},{capture:true,passive:true});
 next.addEventListener("pointerdown",startMusic);
 prev.addEventListener("pointerdown",startMusic);
 next.addEventListener("click",startMusic);
